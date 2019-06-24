@@ -6,5 +6,27 @@ package entity;
  * @author Jean-Aymeric Diet
  */
 public abstract class Entity {
-
+	private int positionX;
+	private int positionY;
+	
+	public Entity(final int x, int y) {
+		this.positionX = x;
+		this.positionY = y;
+	}
+	
+	public int getPositionX() {
+		return this.positionX;
+	}
+	
+	public int getPositionY() {
+		return this.positionY;
+	}
+	
+	public void setPositionX(int x) {
+		this.positionX = x;
+	}
+	
+	public void setPositionY(int y) {
+		this.positionY = y;
+	}
 }
