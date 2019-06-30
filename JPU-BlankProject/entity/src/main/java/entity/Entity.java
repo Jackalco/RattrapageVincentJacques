@@ -8,10 +8,15 @@ package entity;
 public abstract class Entity {
 	private int positionX;
 	private int positionY;
+	private Map map;
 	
 	public Entity(final int x, int y) {
 		this.positionX = x;
 		this.positionY = y;
+	}
+	
+	public Entity() {
+		
 	}
 	
 	public int getPositionX() {
@@ -28,5 +33,9 @@ public abstract class Entity {
 	
 	public void setPositionY(int y) {
 		this.positionY = y;
+	}
+	
+	public void setMap(Map map) {
+		this.map = map;
 	}
 }

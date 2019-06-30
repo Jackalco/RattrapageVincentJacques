@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
@@ -64,7 +65,17 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
+		graphics.clearRect(0, 0, 400, 600);
+		/*graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);*/
+	}
+	
+	public void displayMap(Graphics graphics) {
+		final int imageSize = 16;
+		graphics.setColor(Color.BLUE);
+		graphics.fillRect(10, 10, 400, 600);
+	}
+	
+	public void finalMap() {
+		
 	}
 }

@@ -82,6 +82,5 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the code
 	 * @return the e
 	 */
-	public abstract E find(String code);
 
 }
