@@ -46,8 +46,7 @@ public final class Model extends Observable implements IModel {
      */
 	private void setMap(final Map map) {
 		this.map = map;
-		this.setChanged();
-		this.notifyObservers();
+		this.modelNotify();
 	}
 
 	/**
@@ -62,12 +61,12 @@ public final class Model extends Observable implements IModel {
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
 	public void loadMap(final int id) {
-		try {
+		/*try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
 			this.setMap(daoMap.find(id));
 		} catch (final SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	/**
@@ -86,14 +85,14 @@ public final class Model extends Observable implements IModel {
 
 	@Override
 	public void modelNotify() {
-		// TODO Auto-generated method stub
-		
+		setChanged();
+		notifyObservers();		
 	}
 
 	@Override
 	public void loop() {
-		// TODO Auto-generated method stub
-		
+		this.getMap();
+		this.modelNotify();
 	}
 
 }

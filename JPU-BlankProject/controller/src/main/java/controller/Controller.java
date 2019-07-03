@@ -75,10 +75,10 @@ public final class Controller implements IController {
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case Q:
-				this.model.loadMap(1);
+				this.model.getMap().getPlayer1().movePlayer1('Q');
 				break;
 			case D:
-				this.model.loadMap(2);
+				this.model.getMap().getPlayer1().movePlayer1('D');
 				break;
 			case LEFT:
 				this.model.loadMap(3);

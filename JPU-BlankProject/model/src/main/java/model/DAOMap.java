@@ -70,7 +70,7 @@ public class DAOMap extends DAOEntity<Map> {
 		Map map = new Map();
 
 		try {
-			final String sql = "{callMap(?)}";
+			final String sql = "{call callMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
@@ -83,7 +83,7 @@ public class DAOMap extends DAOEntity<Map> {
 			e.printStackTrace();
 		}
 		return null;
-	} 
+	}
 
 	/*
 	 * (non-Javadoc)

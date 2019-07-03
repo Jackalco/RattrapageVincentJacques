@@ -38,4 +38,8 @@ public abstract class Entity {
 	public void setMap(Map map) {
 		this.map = map;
 	}
+	
+	public Map getMap() {
+		return this.map;
+	}
 }
