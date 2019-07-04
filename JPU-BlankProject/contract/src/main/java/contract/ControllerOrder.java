@@ -11,9 +11,9 @@ public enum ControllerOrder {
 	
 	D,
 	
-	LEFT,
+	L,
 	
-	RIGHT,
+	K,
 	
 	NOPE,
 }

@@ -83,16 +83,16 @@ public final class Model extends Observable implements IModel {
 		return this;
 	}
 
-	@Override
+
 	public void modelNotify() {
 		setChanged();
 		notifyObservers();		
 	}
 
-	@Override
 	public void loop() {
-		this.getMap();
+		if(this.getMap().getPlayer1() != null && this.getMap().getPlayer2() != null) {
 		this.modelNotify();
+		}
 	}
 
 }

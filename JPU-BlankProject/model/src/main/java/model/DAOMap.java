@@ -67,7 +67,7 @@ public class DAOMap extends DAOEntity<Map> {
 	 */
 	@Override
 	public Map find(final int id) {
-		Map map = new Map();
+		/*Map map = new Map();
 
 		try {
 			final String sql = "{call callMap(?)}";
@@ -81,7 +81,7 @@ public class DAOMap extends DAOEntity<Map> {
 			return map;
 		} catch (final SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 		return null;
 	}
 

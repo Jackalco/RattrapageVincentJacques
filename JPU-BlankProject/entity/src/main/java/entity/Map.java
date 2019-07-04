@@ -61,14 +61,14 @@ public class Map extends Entity {
 	private Entity[][] mapToChars;
 	private Collisions collisions;
 	
-	public Map(final int id, final String content) {
-		this.setId(id);
+	public Map( final String content) {
 		this.setContentMap(content);
 		this.createMap();
+		collisions = new Collisions();
 	}
 	
 	public Map() {
-		this(1, contentMap);
+		this( contentMap);
 	}
 	
 	public String getContentMap() {
@@ -140,6 +140,11 @@ public class Map extends Entity {
 		return null;
 	}
 	
+	/*public Player1 getLastDirectionP1() {
+		return this.getLastDirectionX;
+	}*/
+	
+	
 	public Player2 getPlayer2() {
 		Entity[][] entity = this.getArrayMap();
 		for (int y = 0; y < 49; y++) {
@@ -150,6 +155,11 @@ public class Map extends Entity {
 			}
 		}
 		return null;
+	}
+	
+	public void loop() {
+		Player1 p1 = this.getPlayer1();
+		Player2 p2 = this.getPlayer2();
 	}
 
 }

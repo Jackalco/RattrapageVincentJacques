@@ -14,6 +14,8 @@ import mobileElements.Player1;
 import mobileElements.Player2;
 import motionLessElements.Empty;
 import motionLessElements.Wall;
+import motionLessElements.wallPlayer1;
+import motionLessElements.wallPlayer2;
 import entity.Entity;
 
 
@@ -80,19 +82,22 @@ class ViewPanel extends JPanel implements Observer {
 		Map map = this.viewFrame.getModel().getMap();
 		Entity[][] loadMap = map.getArrayMap();
 		Player1 player1 = null;
+		Player2 player2 = null;
 		final int width = 49;
 		final int height = 74;
 		
-		if(map.getPlayer1() != null) {
+		/*if(map.getPlayer1() != null) {*/
 			player1 = this.viewFrame.getModel().getMap().getPlayer1();
+			player2 = this.viewFrame.getModel().getMap().getPlayer2();
 			int player1PosX = this.viewFrame.getModel().getMap().getPlayer1().getPositionX();
 			int player1PosY = this.viewFrame.getModel().getMap().getPlayer1().getPositionY();
 			Font font = new Font("Arial", Font.BOLD, 20);
 			graphics.setFont(font);
+			this.displayMap(graphics, width, height);
+			this.infoP(graphics, map, player1, player2);
 
-		}
 		
-		this.displayMap(graphics, width, height);
+		
 		
 
 	}
@@ -117,13 +122,20 @@ class ViewPanel extends JPanel implements Observer {
 				} else if(loadMap[x][y] instanceof Player2) {
 					graphics.setColor(Color.RED);
 					graphics.fillRect(x*imageSize, y*imageSize, 8, 8);
+				} else if(loadMap[x][y] instanceof wallPlayer1) {
+					graphics.setColor(Color.MAGENTA);
+					graphics.fillRect(x*imageSize, y*imageSize, 8, 8);
+				} else if(loadMap[x][y] instanceof wallPlayer2) {
+					graphics.setColor(Color.ORANGE);
+					graphics.fillRect(x*imageSize, y*imageSize, 8, 8);
 				}
 
 			}
 		}
 	}
 	
-	public void finalMap() {
-		
+	public void infoP(Graphics graphics, Map map, Player1 player1, Player2 player2) {
+		graphics.drawString(String.valueOf("Position 1: "+ player1.getPositionX()+ " " + player1.getPositionY()), 40, 40);
+		graphics.drawString(String.valueOf("Position 2: "+ player2.getPositionX()+ " " + player2.getPositionY()), 40, 60);
 	}
 }

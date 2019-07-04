@@ -15,6 +15,7 @@ public final class Controller implements IController {
 
 	/** The model. */
 	private IModel	model;
+	
 
 	/**
 	 * Instantiates a new controller.
@@ -38,7 +39,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.view.printMessage("Player one use Q and D to move, and the Player 2 use the key Right and Left to move");
 	}
 
 	/**
@@ -80,15 +81,30 @@ public final class Controller implements IController {
 			case D:
 				this.model.getMap().getPlayer1().movePlayer1('D');
 				break;
-			case LEFT:
-				this.model.loadMap(3);
+			case L:
+				this.model.getMap().getPlayer2().movePlayer2('L');
+				System.out.println("L");
 				break;
-			case RIGHT:
-				this.model.loadMap(4);
+			case K:
+				this.model.getMap().getPlayer2().movePlayer2('K');
+				System.out.println("K");
 				break;
 			default :
 				break;
 		}
 	}
+	
+	public void start() {
+		
+		while(true) {
+			this.model.loop();
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}	
 
 }
