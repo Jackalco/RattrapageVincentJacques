@@ -109,7 +109,7 @@ class ViewPanel extends JPanel implements Observer {
 		Entity[][] loadMap = map.getArrayMap();
 		Player1 player1 = this.viewFrame.getModel().getMap().getPlayer1();
 		for (int x = 0; x < 74; x++) {
-			for (int y = 0; y < 49; y++) {
+			for (int y = 0; y < 46; y++) {
 				if(loadMap[x][y] instanceof Wall) {
 					graphics.setColor(Color.BLACK);
 					graphics.fillRect(x*imageSize, y*imageSize, 8, 8);

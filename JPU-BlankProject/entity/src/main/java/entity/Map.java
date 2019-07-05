@@ -51,15 +51,13 @@ public class Map extends Entity {
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
-			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
-			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
-			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
-			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
-			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
+			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" +
+			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" +
 			"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
 	private int id;
 	private Entity[][] mapToChars;
 	private Collisions collisions;
+	private Player1 player1;
 	
 	public Map( final String content) {
 		this.setContentMap(content);
@@ -97,7 +95,7 @@ public class Map extends Entity {
 	
 	public void createMap() {
 		String map = this.getContentMap();
-		int HeightMap = 49;
+		int HeightMap = 46;
 		int WidthMap = 74;
 		this.mapToChars = new Entity[WidthMap][HeightMap];
 		for (int y = 0; y < HeightMap; y++) {
@@ -130,7 +128,7 @@ public class Map extends Entity {
 	
 	public Player1 getPlayer1() {
 		Entity[][] entity = this.getArrayMap();
-		for (int y = 0; y < 49; y++) {
+		for (int y = 0; y < 46; y++) {
 			for (int x = 0; x < 74; x++) {
 				if (entity[x][y] instanceof Player1) {
 					return (Player1) entity[x][y];
@@ -146,11 +144,11 @@ public class Map extends Entity {
 	
 	
 	public Player2 getPlayer2() {
-		Entity[][] entity = this.getArrayMap();
-		for (int y = 0; y < 49; y++) {
+		Entity[][] entity2 = this.getArrayMap();
+		for (int y = 0; y < 46; y++) {
 			for (int x = 0; x < 74; x++) {
-				if (entity[x][y] instanceof Player2) {
-					return (Player2) entity[x][y];
+				if (entity2[x][y] instanceof Player2) {
+					return (Player2) entity2[x][y];
 				}
 			}
 		}
@@ -160,6 +158,9 @@ public class Map extends Entity {
 	public void loop() {
 		Player1 p1 = this.getPlayer1();
 		Player2 p2 = this.getPlayer2();
+		if(p1 != null) {
+			this.getPlayer1().defaultDirection();;
+		}
 	}
 
 }

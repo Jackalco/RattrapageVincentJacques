@@ -91,6 +91,7 @@ public final class Model extends Observable implements IModel {
 
 	public void loop() {
 		if(this.getMap().getPlayer1() != null && this.getMap().getPlayer2() != null) {
+		this.getMap().loop();
 		this.modelNotify();
 		}
 	}

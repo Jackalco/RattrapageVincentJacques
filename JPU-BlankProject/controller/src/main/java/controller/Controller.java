@@ -83,13 +83,13 @@ public final class Controller implements IController {
 				break;
 			case L:
 				this.model.getMap().getPlayer2().movePlayer2('L');
-				System.out.println("L");
 				break;
 			case K:
 				this.model.getMap().getPlayer2().movePlayer2('K');
-				System.out.println("K");
 				break;
+			case NOPE:
 			default :
+				this.model.getMap().getPlayer1().defaultDirection();
 				break;
 		}
 	}
