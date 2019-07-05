@@ -8,6 +8,9 @@ import motionLessElements.wallPlayer2;
 
 public class MobileElements extends Entity {
 	
+	protected boolean AlivePlayer1;
+	protected boolean AlivePlayer2;
+	
 	public MobileElements(int x, int y) {
 		super(x, y);
 	}
@@ -33,6 +36,8 @@ public class MobileElements extends Entity {
 			loadMap[Xpos][Ypos] = new wallPlayer1(Xpos,Ypos);
 			this.setPositionX(Xpos + x);
 			this.setPositionY(Ypos + y);
+		} else if(collision1) {
+			this.setAlivePlayer1(false);
 		}
 		
 		if(this instanceof Player2) {
@@ -47,6 +52,22 @@ public class MobileElements extends Entity {
 			this.setPositionX(Xpos + x);
 			this.setPositionY(Ypos + y);
 		}
+	}
+	
+	public boolean getAlivePlayer1() {
+		return AlivePlayer1;
+	}
+	
+	public void setAlivePlayer1(boolean alive1) {
+		this.AlivePlayer1 = alive1;
+	}
+	
+	public boolean getAlivePlayer2() {
+		return AlivePlayer2;
+	}
+	
+	public void setAlivePlayer2(boolean alive2) {
+		this.AlivePlayer2 = alive2;
 	}
 
 }

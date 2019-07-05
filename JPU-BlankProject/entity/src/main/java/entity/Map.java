@@ -138,10 +138,6 @@ public class Map extends Entity {
 		return null;
 	}
 	
-	/*public Player1 getLastDirectionP1() {
-		return this.getLastDirectionX;
-	}*/
-	
 	
 	public Player2 getPlayer2() {
 		Entity[][] entity2 = this.getArrayMap();

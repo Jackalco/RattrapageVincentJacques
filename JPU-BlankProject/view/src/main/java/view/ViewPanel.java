@@ -31,6 +31,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
+
 	/**
 	 * Instantiates a new view panel.
 	 *
@@ -78,7 +79,6 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		final int imageSize = 8;
 		Map map = this.viewFrame.getModel().getMap();
 		Entity[][] loadMap = map.getArrayMap();
 		Player1 player1 = null;
@@ -86,19 +86,17 @@ class ViewPanel extends JPanel implements Observer {
 		final int width = 49;
 		final int height = 74;
 		
-		/*if(map.getPlayer1() != null) {*/
+		if(map.getPlayer1() != null && map.getPlayer2() != null) {
 			player1 = this.viewFrame.getModel().getMap().getPlayer1();
 			player2 = this.viewFrame.getModel().getMap().getPlayer2();
-			int player1PosX = this.viewFrame.getModel().getMap().getPlayer1().getPositionX();
-			int player1PosY = this.viewFrame.getModel().getMap().getPlayer1().getPositionY();
 			Font font = new Font("Arial", Font.BOLD, 20);
 			graphics.setFont(font);
 			this.displayMap(graphics, width, height);
 			this.infoP(graphics, map, player1, player2);
-
-		
-		
-		
+		} else {
+			graphics.clearRect(0, 0, 600, 400);
+		}
+				
 
 	}
 	
@@ -108,6 +106,7 @@ class ViewPanel extends JPanel implements Observer {
 		IModel getModel = this.viewFrame.getModel();
 		Entity[][] loadMap = map.getArrayMap();
 		Player1 player1 = this.viewFrame.getModel().getMap().getPlayer1();
+		Player2 player2 = this.viewFrame.getModel().getMap().getPlayer2();
 		for (int x = 0; x < 74; x++) {
 			for (int y = 0; y < 46; y++) {
 				if(loadMap[x][y] instanceof Wall) {
@@ -131,6 +130,18 @@ class ViewPanel extends JPanel implements Observer {
 				}
 
 			}
+		}
+		
+		if(!player1.getAlivePlayer1()) {
+			graphics.clearRect(0, 0, 600, 400);
+			this.viewFrame.printMessage("Congratulations Player 2, you won !");
+			System.exit(0);
+		}
+		
+		if(!player2.getAlivePlayer2()) {
+			graphics.clearRect(0, 0, 600, 400);
+			this.viewFrame.printMessage("Congratulations Player 1, you won !");
+			System.exit(0);
 		}
 	}
 	

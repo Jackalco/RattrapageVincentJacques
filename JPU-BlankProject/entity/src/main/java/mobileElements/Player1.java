@@ -6,6 +6,7 @@ public class Player1 extends MobileElements {
 	
 	public Player1(int x, int y) {
 		super(x, y);
+		this.AlivePlayer1 = true;
 	}
 	
 	public void movePlayer1(char direction) {
@@ -63,9 +64,7 @@ public class Player1 extends MobileElements {
 	}
 	
 	public void defaultDirection() {
-		int x;
-		int y;
-			this.Move(this.getLastDirectionXPlayer1(), this.getLastDirectionYPlayer1());
+		this.Move(this.getLastDirectionXPlayer1(), this.getLastDirectionYPlayer1());
 	}
 	
 }
