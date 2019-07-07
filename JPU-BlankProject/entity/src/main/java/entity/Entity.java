@@ -42,4 +42,6 @@ public abstract class Entity {
 	public Map getMap() {
 		return this.map;
 	}
+	
+	
 }

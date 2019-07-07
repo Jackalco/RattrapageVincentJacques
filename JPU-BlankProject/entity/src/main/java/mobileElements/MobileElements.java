@@ -36,7 +36,7 @@ public class MobileElements extends Entity {
 		} else if(collision1) {
 			this.setAlivePlayer1(false);
 			/*loadMap[Xpos][Ypos] = new wallPlayer1(Xpos,Ypos);*/
-			/*this.addWinner();*/
+			
 		}
 		
 

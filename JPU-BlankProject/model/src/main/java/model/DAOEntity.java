@@ -77,17 +77,6 @@ abstract class DAOEntity<E extends Entity> {
 	 */
 	public abstract E find(int id);
 
-	public MobileElements addWinner(String winner) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	/**
-	 * Find.
-	 *
-	 * @param code
-	 *          the code
-	 * @return the e
-	 */
 
 }

@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.CallableStatement;
-import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
@@ -16,6 +14,7 @@ public final class Model extends Observable implements IModel {
 
 	/** The helloWorld. */
 	private Map map;
+	private DAOWinner daoWinner;
 
 	/**
 	 * Instantiates a new model.
@@ -44,10 +43,6 @@ public final class Model extends Observable implements IModel {
      * @param helloWorld
      *            the new hello world
      */
-	private void setMap(final Map map) {
-		this.map = map;
-		this.modelNotify();
-	}
 
 	/**
      * Load hello world.
@@ -60,14 +55,7 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadMap(final int id) {
-		/*try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setMap(daoMap.find(id));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}*/
-	}
+
 
 	/**
      * Gets the observable.
@@ -96,6 +84,18 @@ public final class Model extends Observable implements IModel {
 		}
 	}
 
+	@Override
+	public void isWinner(int number) {
+		String winner;
+		if(number == 1) {
+			winner = "Player 1";
+			this.daoWinner.addWinner(winner);
+		} else if(number == 2) {
+			winner = "Player 2";
+			this.daoWinner.addWinner(winner);
+		}
+		
+	}
 
 
 }

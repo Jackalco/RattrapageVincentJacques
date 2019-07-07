@@ -1,5 +1,6 @@
 package contract;
 
+import java.sql.Connection;
 import java.util.Observable;
 import entity.Map;
 
@@ -16,13 +17,8 @@ public interface IModel {
 	 * @return the Map entity
 	 */
 	Map getMap();
-
-	/**
-	 * Load the Map.
-	 *
-	 * @param id
-	 *          the id
-	 *
+	
+	void isWinner(int number);
 	
 
 	/**

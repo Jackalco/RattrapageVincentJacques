@@ -57,10 +57,8 @@ public class Map extends Entity {
 	private int id;
 	private Entity[][] mapToChars;
 	private Collisions collisions;
-	private Player1 player1;
 	
 	public Map( final String content) {
-		this.setContentMap(content);
 		this.createMap();
 		collisions = new Collisions();
 	}

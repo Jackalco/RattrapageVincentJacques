@@ -6,9 +6,11 @@ import java.sql.SQLException;
 
 import mobileElements.MobileElements;
 
-public class DAOWinner<M extends MobileElements> {
+public class DAOWinner{
 	
+	/** The connection. */
 	private final Connection connection;
+
 	
 	public DAOWinner(final Connection connection) throws SQLException {
 		this.connection = connection;
@@ -30,5 +32,7 @@ public class DAOWinner<M extends MobileElements> {
 		}
 		return null;
 	}
+
+
 
 }
