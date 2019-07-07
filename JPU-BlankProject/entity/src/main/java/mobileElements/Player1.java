@@ -63,7 +63,7 @@ public class Player1 extends MobileElements {
 		return lastDirectionY;
 	}
 	
-	public void defaultDirection() {
+	public void defaultDirection1() {
 		this.Move(this.getLastDirectionXPlayer1(), this.getLastDirectionYPlayer1());
 	}
 	

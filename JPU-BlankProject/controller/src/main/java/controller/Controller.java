@@ -89,10 +89,10 @@ public final class Controller implements IController {
 				break;
 			case NOPE:
 			default :
-				this.model.getMap().getPlayer1().defaultDirection();
 				break;
 		}
 	}
+	
 	
 	public void start() {
 		

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import entity.Entity;
+import mobileElements.MobileElements;
+
 
 /**
  * The Class DAOEntity.
@@ -74,6 +76,11 @@ abstract class DAOEntity<E extends Entity> {
 	 * @return the e
 	 */
 	public abstract E find(int id);
+
+	public MobileElements addWinner(String winner) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	/**
 	 * Find.

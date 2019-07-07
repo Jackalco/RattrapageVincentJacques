@@ -152,11 +152,13 @@ public class Map extends Entity {
 	}
 	
 	public void loop() {
-		Player1 p1 = this.getPlayer1();
-		Player2 p2 = this.getPlayer2();
-		if(p1 != null) {
-			this.getPlayer1().defaultDirection();;
+		boolean p1 = this.getPlayer1().getAlivePlayer1();
+		boolean p2 = this.getPlayer2().getAlivePlayer2();
+		if(p1 == true && p2 == true) {
+			this.getPlayer1().defaultDirection1();
+			this.getPlayer2().defaultDirection2();
 		}
+		
 	}
 
 }

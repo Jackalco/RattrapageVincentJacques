@@ -19,11 +19,8 @@ public class MobileElements extends Entity {
 		final int Xpos = this.getPositionX();
 		final int Ypos = this.getPositionY();
 		final Entity[][] loadMap = this.getMap().getArrayMap();
-		final Player1 player1 = this.getMap().getPlayer1();
-		final Player2 player2 = this.getMap().getPlayer2();
 		final Collisions getCollisions = this.getMap().getCollisions();
 		boolean collision1 = false;
-		boolean collision2 = false;
 		
 		if(this instanceof Player1) {
 			collision1 = getCollisions.checkCollisions(loadMap, Xpos + x, Ypos + y);
@@ -38,7 +35,20 @@ public class MobileElements extends Entity {
 			this.setPositionY(Ypos + y);
 		} else if(collision1) {
 			this.setAlivePlayer1(false);
+			/*loadMap[Xpos][Ypos] = new wallPlayer1(Xpos,Ypos);*/
+			/*this.addWinner();*/
 		}
+		
+
+	}
+	
+	public void Move1(int x, int y) {
+		final int Xpos = this.getPositionX();
+		final int Ypos = this.getPositionY();
+		final Entity[][] loadMap = this.getMap().getArrayMap();
+		final Collisions getCollisions = this.getMap().getCollisions();
+		boolean collision2 = false;
+		
 		
 		if(this instanceof Player2) {
 			collision2 = getCollisions.checkCollisions(loadMap, Xpos + x, Ypos + y);
@@ -51,6 +61,8 @@ public class MobileElements extends Entity {
 			loadMap[Xpos][Ypos] = new wallPlayer2(Xpos,Ypos);
 			this.setPositionX(Xpos + x);
 			this.setPositionY(Ypos + y);
+		} else if(collision2) {
+			this.setAlivePlayer2(false);
 		}
 	}
 	

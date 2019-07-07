@@ -1,10 +1,10 @@
 package model;
 
+import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
-import entity.HelloWorld;
 import entity.Map;
 
 /**
@@ -95,5 +95,7 @@ public final class Model extends Observable implements IModel {
 		this.modelNotify();
 		}
 	}
+
+
 
 }

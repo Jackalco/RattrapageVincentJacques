@@ -1,31 +1,29 @@
 package contract;
 
 import java.util.Observable;
-
-import entity.HelloWorld;
 import entity.Map;
 
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Vincent Jacques
  */
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets the Map.
 	 *
-	 * @return the helloworld entity
+	 * @return the Map entity
 	 */
 	Map getMap();
 
 	/**
-	 * Load the message.
+	 * Load the Map.
 	 *
-	 * @param code
-	 *          the code
-	 */
-	void loadMap(int id);
+	 * @param id
+	 *          the id
+	 *
+	
 
 	/**
 	 * Gets the observable.

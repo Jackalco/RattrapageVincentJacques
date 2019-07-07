@@ -30,6 +30,8 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	
+	private boolean toStop = false;
 
 
 	/**
@@ -86,7 +88,7 @@ class ViewPanel extends JPanel implements Observer {
 		final int width = 49;
 		final int height = 74;
 		
-		if(map.getPlayer1() != null && map.getPlayer2() != null) {
+		if(map.getPlayer1() != null || map.getPlayer2() != null) {
 			player1 = this.viewFrame.getModel().getMap().getPlayer1();
 			player2 = this.viewFrame.getModel().getMap().getPlayer2();
 			Font font = new Font("Arial", Font.BOLD, 20);
@@ -132,13 +134,15 @@ class ViewPanel extends JPanel implements Observer {
 			}
 		}
 		
-		if(!player1.getAlivePlayer1()) {
+		if(!player1.getAlivePlayer1() &&  toStop == false) {
+			toStop = true;
 			graphics.clearRect(0, 0, 600, 400);
 			this.viewFrame.printMessage("Congratulations Player 2, you won !");
 			System.exit(0);
 		}
 		
-		if(!player2.getAlivePlayer2()) {
+		if(!player2.getAlivePlayer2() && toStop == false) {
+			toStop = true;
 			graphics.clearRect(0, 0, 600, 400);
 			this.viewFrame.printMessage("Congratulations Player 1, you won !");
 			System.exit(0);
