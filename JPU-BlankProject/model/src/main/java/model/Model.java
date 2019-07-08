@@ -2,19 +2,22 @@ package model;
 
 import java.util.Observable;
 
+import contract.IDAOWinner;
 import contract.IModel;
 import entity.Map;
 
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author Vincent Jacques
  */
-public final class Model extends Observable implements IModel {
+public class Model extends Observable implements IModel {
 
-	/** The helloWorld. */
+
 	private Map map;
-	private DAOWinner daoWinner;
+	private IDAOWinner daoWinner;
+	public String winner;
+
 
 	/**
 	 * Instantiates a new model.
@@ -24,38 +27,14 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Gets the hello world.
+     * Gets the map.
      *
-     * @return the hello world
+     * @return the map
      */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
+
 	public Map getMap() {
 		return this.map;
 	}
-
-	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
-     */
-
-	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-
 
 	/**
      * Gets the observable.
@@ -83,18 +62,29 @@ public final class Model extends Observable implements IModel {
 		this.modelNotify();
 		}
 	}
+	
+	public IDAOWinner getDAOWinner() {
+		return this.daoWinner;
+	}
 
 	@Override
 	public void isWinner(int number) {
-		String winner;
 		if(number == 1) {
-			winner = "Player 1";
-			this.daoWinner.addWinner(winner);
+			this.setWinner("Player_1");
+			this.getDAOWinner().addWinner(winner);
 		} else if(number == 2) {
-			winner = "Player 2";
-			this.daoWinner.addWinner(winner);
+			this.setWinner("Player_2");
+			this.getDAOWinner().addWinner(winner);
 		}
-		
+	}
+	
+	public String getWinner() {
+		System.out.println(winner);
+		return this.winner;
+	}
+	
+	public void setWinner(String winner) {
+		this.winner = winner;
 	}
 
 

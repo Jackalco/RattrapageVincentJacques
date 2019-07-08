@@ -6,6 +6,13 @@ import motionLessElements.Wall;
 import motionLessElements.wallPlayer1;
 import motionLessElements.wallPlayer2;
 
+/**
+ * The Class Collisions
+ * 
+ * @author Vincent Jacques
+ *
+ */
+
 public class Collisions {
 	
 	public Collisions() {

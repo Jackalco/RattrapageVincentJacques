@@ -22,7 +22,7 @@ import entity.Entity;
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Vincent Jacques
  */
 class ViewPanel extends JPanel implements Observer {
 
@@ -32,6 +32,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long	serialVersionUID	= -998294702363713521L;
 	
 	private boolean toStop = false;
+	private int number;
 
 
 	/**
@@ -105,7 +106,6 @@ class ViewPanel extends JPanel implements Observer {
 	public void displayMap(Graphics graphics, int width, int height) {
 		final int imageSize = 8;
 		Map map = this.viewFrame.getModel().getMap();
-		IModel getModel = this.viewFrame.getModel();
 		Entity[][] loadMap = map.getArrayMap();
 		Player1 player1 = this.viewFrame.getModel().getMap().getPlayer1();
 		Player2 player2 = this.viewFrame.getModel().getMap().getPlayer2();
@@ -135,7 +135,7 @@ class ViewPanel extends JPanel implements Observer {
 		}
 		
 		if(!player1.getAlivePlayer1() &&  toStop == false) {
-			int number = 2;
+			this.number = 2;
 			toStop = true;
 			graphics.clearRect(0, 0, 600, 400);
 			this.viewFrame.printMessage("Congratulations Player 2, you won !");
@@ -144,7 +144,7 @@ class ViewPanel extends JPanel implements Observer {
 		}
 		
 		if(!player2.getAlivePlayer2() && toStop == false) {
-			int number = 1;
+			this.number = 1;
 			toStop = true;
 			graphics.clearRect(0, 0, 600, 400);
 			this.viewFrame.printMessage("Congratulations Player 1, you won !");

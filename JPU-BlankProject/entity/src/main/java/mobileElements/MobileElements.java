@@ -6,6 +6,12 @@ import motionLessElements.Empty;
 import motionLessElements.wallPlayer1;
 import motionLessElements.wallPlayer2;
 
+/**
+ * The Class MobileElements
+ * 
+ * @author Vincent Jacques
+ */
+
 public class MobileElements extends Entity {
 	
 	protected boolean AlivePlayer1;

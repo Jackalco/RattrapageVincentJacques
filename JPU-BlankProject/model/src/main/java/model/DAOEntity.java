@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import entity.Entity;
-import mobileElements.MobileElements;
+
 
 
 /**
  * The Class DAOEntity.
  *
- * @author Jean-Aymeric Diet
+ * @author Vincent Jacques
  *
  * @param <E>
  *          the element type

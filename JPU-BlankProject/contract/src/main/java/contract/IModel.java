@@ -19,7 +19,8 @@ public interface IModel {
 	Map getMap();
 	
 	void isWinner(int number);
-	
+
+	String getWinner();
 
 	/**
 	 * Gets the observable.

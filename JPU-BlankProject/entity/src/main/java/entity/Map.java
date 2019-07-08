@@ -6,6 +6,12 @@ import mobileElements.Player2;
 import motionLessElements.Empty;
 import motionLessElements.Wall;
 
+/**
+ * The Class Map
+ * 
+ * @author Vincent Jacques
+ */
+
 public class Map extends Entity {
 	
 	private static String contentMap = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\r\n" + 
@@ -54,18 +60,14 @@ public class Map extends Entity {
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" +
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" +
 			"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-	private int id;
 	private Entity[][] mapToChars;
 	private Collisions collisions;
 	
-	public Map( final String content) {
+	public Map() {
 		this.createMap();
 		collisions = new Collisions();
 	}
 	
-	public Map() {
-		this( contentMap);
-	}
 	
 	public String getContentMap() {
 		return this.contentMap;
@@ -73,14 +75,6 @@ public class Map extends Entity {
 	
 	public void setContentMap(final String content) {
 		this.contentMap = content;
-	}
-	
-	public int getId() {
-		return this.id;
-	}
-	
-	public void setId(final int id) {
-		this.id = id;
 	}
 
 	public Collisions getCollisions() {
