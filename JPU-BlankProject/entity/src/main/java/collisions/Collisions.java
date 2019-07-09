@@ -15,10 +15,20 @@ import motionLessElements.wallPlayer2;
 
 public class Collisions {
 	
+	/**
+	 * Collisions constructor.
+	 */
 	public Collisions() {
 		
 	}
 	
+	/**
+	 * The checkCollisions method.
+	 * @param entity 
+	 * @param x
+	 * @param y
+	 * @return a boolean that indicates if there is a collision or not.
+	 */
 	public boolean checkCollisions(Entity[][] entity, int x, int y) {
 		if(entity[x][y] instanceof Wall) {
 			return true;
@@ -31,6 +41,13 @@ public class Collisions {
 		}
 	}
 	
+	/**
+	 * The checkEmpty method.
+	 * @param entity
+	 * @param x
+	 * @param y
+	 * @return a boolean that indicates if there is a path near the entity. If true, it can moves.
+	 */
 	public boolean checkEmpty(Entity[][] entity, int x, int y) {
 		if(entity[x][y] instanceof Empty) {
 			return false;

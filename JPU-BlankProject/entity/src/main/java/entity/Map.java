@@ -14,6 +14,7 @@ import motionLessElements.Wall;
 
 public class Map extends Entity {
 	
+	/** The conntent of the map */
 	private static String contentMap = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\r\n" + 
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" + 
@@ -60,31 +61,58 @@ public class Map extends Entity {
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" +
 			"wnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnw\r\n" +
 			"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+	/** The array containing the entities of the map*/
 	private Entity[][] mapToChars;
+	/** The collisions of the map*/
 	private Collisions collisions;
 	
+	/**
+	 * The Map constructor
+	 */
 	public Map() {
 		this.createMap();
 		collisions = new Collisions();
 	}
 	
-	
+	/**
+	 * Gets the content of the map
+	 *
+	 * @return content
+	 */
 	public String getContentMap() {
 		return this.contentMap;
 	}
 	
+	/**
+	 * Sets the content of the map
+	 *
+	 * @param content
+	 */
 	public void setContentMap(final String content) {
 		this.contentMap = content;
 	}
-
+	
+	/**
+	 * The getCollisions method
+	 * 
+	 * @return collisions
+	 */
 	public Collisions getCollisions() {
 		return collisions;
 	}
 	
+	/**
+	 * The setCollisions method
+	 * 
+	 * @param collisions
+	 */
 	public void setCollisions(Collisions collisions) {
 		this.collisions = collisions;
 	}
 	
+	/**
+	 * Transform the String content of the map into entities
+	 */
 	public void createMap() {
 		String map = this.getContentMap();
 		int HeightMap = 46;
@@ -114,10 +142,20 @@ public class Map extends Entity {
 		}
 	}
 	
+	/**
+	 * The getArrayMap method
+	 * 
+	 * @return mapToChars
+	 */
 	public Entity[][] getArrayMap() {
 		return this.mapToChars;
 	}
 	
+	/**
+	 * The getPlayer1 method
+	 * 
+	 * @return Player1
+	 */
 	public Player1 getPlayer1() {
 		Entity[][] entity = this.getArrayMap();
 		for (int y = 0; y < 46; y++) {
@@ -130,7 +168,11 @@ public class Map extends Entity {
 		return null;
 	}
 	
-	
+	/**
+	 * The getPlayer2 method
+	 * 
+	 * @return Player2
+	 */
 	public Player2 getPlayer2() {
 		Entity[][] entity2 = this.getArrayMap();
 		for (int y = 0; y < 46; y++) {
@@ -143,6 +185,9 @@ public class Map extends Entity {
 		return null;
 	}
 	
+	/**
+	 * Executes methods defaultDirection of the players
+	 */
 	public void loop() {
 		boolean p1 = this.getPlayer1().getAlivePlayer1();
 		boolean p2 = this.getPlayer2().getAlivePlayer2();
