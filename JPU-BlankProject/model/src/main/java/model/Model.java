@@ -16,7 +16,6 @@ public class Model extends Observable implements IModel {
 
 
 	private Map map;
-	private IDAOWinner IdaoWinner;
 	public String winner;
 	public float time;
 
@@ -51,13 +50,19 @@ public class Model extends Observable implements IModel {
 	public Observable getObservable() {
 		return this;
 	}
-
-
+	
+	/**
+	 * Notify observers.
+	 */
 	public void modelNotify() {
 		setChanged();
 		notifyObservers();		
 	}
-
+	
+	/**
+	 * The loop method.
+	 * Executes the map loop and notify observers.
+	 */
 	public void loop() {
 		if(this.getMap().getPlayer1() != null && this.getMap().getPlayer2() != null) {
 		this.getMap().loop();
@@ -67,15 +72,10 @@ public class Model extends Observable implements IModel {
 	}
 	
 	/**
-	 * gets the DAOWinner
+	 * set the winner at the end of the game and send the time to the method addWinner
 	 * 
-	 * @return the DAOWinner
+	 * @param number
 	 */
-	
-	public IDAOWinner getDAOWinner() {
-		return this.IdaoWinner;
-	}
-
 	public void isWinner(int number) {
 		if(number == 1) {
 			this.setWinner("Player_1");
@@ -97,6 +97,11 @@ public class Model extends Observable implements IModel {
 		}
 	}
 	
+	/**
+	 * gets the Winner
+	 * 
+	 * @return the winner
+	 */
 	public String getWinner() {
 		return this.winner;
 	}
@@ -119,6 +124,11 @@ public class Model extends Observable implements IModel {
 		return this.time;
 	}
 	
+	/**
+	 * sets the Time
+	 * 
+	 * @param time
+	 */
 	public void setTime(float time) {
 		this.time = time;
 	}

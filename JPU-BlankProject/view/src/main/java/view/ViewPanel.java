@@ -80,10 +80,13 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	
+	/**
+	 * Display information on screen. Method called each time the view is "painted".
+	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		Map map = this.viewFrame.getModel().getMap();
-		Entity[][] loadMap = map.getArrayMap();
 		Player1 player1 = null;
 		Player2 player2 = null;
 		
@@ -100,6 +103,11 @@ class ViewPanel extends JPanel implements Observer {
 
 	}
 	
+	/**
+	 * The displayMap method.
+	 * Allows the paintComponent method to display the map and its entities.
+	 * @param graphics the Graphics
+	 */
 	public void displayMap(Graphics graphics) {
 		final int imageSize = 8;
 		Map map = this.viewFrame.getModel().getMap();

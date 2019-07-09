@@ -17,8 +17,6 @@ public class DAOWinner implements IDAOWinner {
 	
 	/** The connection. */
 	private final Connection connection;
-	
-	private IModel model;
 
 	/**
 	 * Instantiates a new DAO winner.
@@ -33,11 +31,18 @@ public class DAOWinner implements IDAOWinner {
 		this.connection = connection;
 	}
 	
+	/**
+	 * Gets the connection.
+	 *
+	 * @return the connection
+	 */
 	protected Connection getConnection() {
 		return this.connection;
 	}
 
-
+	/**
+	 * add the winner and the time in the database
+	 */
 	public void addWinner(String winner, float time) {
 		try {
 			final String sql = "{call addWinner(?,?)}";
@@ -49,11 +54,5 @@ public class DAOWinner implements IDAOWinner {
 			e.printStackTrace();
 		}
 	}
-	
-	public IModel getModel() {
-		return this.model;
-	}
-
-
 
 }

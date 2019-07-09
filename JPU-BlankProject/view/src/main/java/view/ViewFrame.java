@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import contract.IController;
-import contract.IDAOWinner;
 import contract.IModel;
 
 /**
