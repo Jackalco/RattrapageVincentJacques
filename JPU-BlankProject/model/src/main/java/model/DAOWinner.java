@@ -38,22 +38,17 @@ public class DAOWinner implements IDAOWinner {
 	}
 
 
-	public void addWinner(final String winner) {
+	public void addWinner(String winner, float time) {
 		try {
-			final String sql = "{call addWinner(?)}";
+			final String sql = "{call addWinner(?,?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setString(1, winner);;
+			call.setString(1, winner);
+			call.setFloat(2, time);
 			call.execute();
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
-
-	/*public String getWinner() {
-		System.out.println(winner);
-		return this.winner;
-
-	}*/
 	
 	public IModel getModel() {
 		return this.model;

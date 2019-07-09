@@ -17,10 +17,6 @@ public interface IModel {
 	 * @return the Map entity
 	 */
 	Map getMap();
-	
-	void isWinner(int number);
-
-	String getWinner();
 
 	/**
 	 * Gets the observable.
@@ -32,4 +28,6 @@ public interface IModel {
 	void modelNotify();
 	
 	void loop();
+	
+	void isWinner(int number);
 }
